@@ -41,6 +41,8 @@ df=pd.read_csv("demand_prediction_dataset.csv")
 # check dataset info
 df.info()
 
+result see
+
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 300 entries, 0 to 299
 Data columns (total 7 columns):
@@ -69,7 +71,9 @@ df["date"]=pd.to_datetime(df["date"],format="%d-%m-%Y")
 # set date as index for easy accesing the value 
 
 df.set_index(df["date"])
+
 df.sort_values('date')
+
 df.rename(columns={"price (INR)":"sale"},inplace=True)
 
 
@@ -80,12 +84,14 @@ df.rename(columns={"price (INR)":"sale"},inplace=True)
 # preparing the data for prophet model
 
 prophet_df=df[["date","sale"]]
+
 #prophet data take datetime as ds input, which we want to predict take it  as y
 prophet_df.rename(columns={"date":"ds","sale":"y"},inplace=True)
 
 
 #applying the model
 from prophet import Prophet
+
 import matplotlib.pyplot as plt
 
 #intialisation of model 
@@ -109,7 +115,7 @@ future = model.make_future_dataframe(periods=30)
 
 forecast = model.predict(future)
 
- Plot the forecast
+ #Plot the forecast
 model.plot(forecast)
 plt.title('Prophet Model Forecast with Seasonality')
 plt.show()#

@@ -186,7 +186,7 @@ if __name__ == "__main__":
 
 
 
-# after starting ,it Ccmd will give this result ,it working fine 
+# after starting ,it cmd will give this result ,it working fine 
 Microsoft Windows [Version 10.0.22631.3737]
 (c) Microsoft Corporation. All rights reserved.
 

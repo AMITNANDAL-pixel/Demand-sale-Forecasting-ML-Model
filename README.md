@@ -1,4 +1,4 @@
-# Demand-sale-Forecasting-ML-Model using Prophet Model
+# Demand-Sale-Forecasting-ML-Model using Prophet Model
 
 
 ## Project Overview

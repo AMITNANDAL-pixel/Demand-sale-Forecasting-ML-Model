@@ -171,14 +171,10 @@ if __name__ == "__main__":
 
 
 
-  #  This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
- * Restarting with watchdog (windowsapi)
-An exception has occurred, use %tb to see the full traceback.
+  
 
 
-your model is host on Flask API server , you must know how to start Flask API server using CMD 
+#your model is host on Flask API server , you must know how to start Flask API server using CMD 
 
   1. Navigate to Your Project Folder
        cd your project folder path , where flask app.py is available, run this command
@@ -190,7 +186,7 @@ your model is host on Flask API server , you must know how to start Flask API se
 
 
 
-# it look like 
+# after starting ,it Ccmd will give this result ,it working fine 
 Microsoft Windows [Version 10.0.22631.3737]
 (c) Microsoft Corporation. All rights reserved.
 

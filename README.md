@@ -86,6 +86,7 @@ df.rename(columns={"price (INR)":"sale"},inplace=True)
 prophet_df=df[["date","sale"]]
 
 #prophet data take datetime as ds input, which we want to predict take it  as y
+
 prophet_df.rename(columns={"date":"ds","sale":"y"},inplace=True)
 
 
@@ -99,6 +100,7 @@ import matplotlib.pyplot as plt
 model=Prophet(seasonality_mode='multiplicative')
 
 #train the model
+
 model.fit(prophet_df)
 
                   
@@ -116,14 +118,19 @@ future = model.make_future_dataframe(periods=30)
 forecast = model.predict(future)
 
  #Plot the forecast
+ 
 model.plot(forecast)
+
 plt.title('Prophet Model Forecast with Seasonality')
+
 plt.show()#
 
 
 # save this model 
 import pickle
+
 with open ("sale_prediction_model.pkl","wb") as f:
+
     pickle.dump(model,f)
 
     
@@ -135,21 +142,29 @@ with open ("sale_prediction_model.pkl","wb") as f:
 
 # Load the saved Prophet model
 with open("sale_prediction_model.pkl", "rb") as f:
+
     model = pickle.load(f)
     
 @app.route('/',methods=['GET'])
+
 def home():
+
     return "Hello, Flask with Prophet!"
     
 @app.route('/predict', methods=['POST'])
+
 def predict():
+
     data = request.get_json()  # Expect JSON input with future dates
     
     future_dates = pd.DataFrame(data["dates"], columns=["ds"])
+    
     forecast = model.predict(future_dates)
+    
     return jsonify(forecast[["ds", "yhat", "yhat_lower", "yhat_upper"]].to_dict(orient="records"))
 
 if __name__ == "__main__":
+
     app.run(debug=True)
 
 
